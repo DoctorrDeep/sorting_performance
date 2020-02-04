@@ -4,7 +4,7 @@ def generate_list(min_number:int=1, max_number:int=1000000, count:int=1000, uniq
     """
     This function will create a list of random numbers.
     It accepts min number in list, max number in list and count of numbers in list.
-
+    Note; if `count` is None then it defaults to 1000
 
     :param min_number: mininum value of single number in list of random numbers
     :param max_number: maximum value of single number in list of random numbers
@@ -13,9 +13,12 @@ def generate_list(min_number:int=1, max_number:int=1000000, count:int=1000, uniq
     :return: list of size `count` of random numbers in random order
     """
 
+    if count == None:
+        count = 1000
+
     random_numbers_list = []
 
-    while not len(random_numbers_list) > count:
+    while not len(random_numbers_list) >= count:
 
         temp = random.randint(min_number, max_number)
 
@@ -33,7 +36,7 @@ def generate_list(min_number:int=1, max_number:int=1000000, count:int=1000, uniq
     return random_numbers_list
 
 
-def check_order(list_of_numbers: list)-> bool:
+def check_order(list_of_numbers: list) -> dict:
     """
     Take a list of numbers and returns whether the list
     was ordered in ascending manner or not
