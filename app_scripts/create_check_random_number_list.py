@@ -1,6 +1,12 @@
 import random
 
-def generate_list(min_number:int=1, max_number:int=1000000, count:int=1000, uniqued_list:bool=True) -> list:
+
+def generate_list(
+        min_number: int = 1,
+        max_number: int = 1000000,
+        count: int = 1000,
+        uniqued_list: bool = True,
+) -> list:
     """
     This function will create a list of random numbers.
     It accepts min number in list, max number in list and count of numbers in list.
@@ -62,9 +68,7 @@ def check_order(list_of_numbers: list) -> dict:
     state_of_randomness = {"random_bool": False}
 
     for index, num in enumerate(list_of_numbers[:-1]):
-        if num>list_of_numbers[index + 1]:
+        if num > list_of_numbers[index + 1]:
             state_of_randomness["random_bool"] = True
 
     return state_of_randomness
-
-
