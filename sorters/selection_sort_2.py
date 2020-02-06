@@ -19,13 +19,13 @@ def selection_sort(random_list: list, debug: bool, help_text: str = "") -> list:
     cache_random_list = copy.deepcopy(random_list)
 
     while len(ordered_list) != len(random_list):
-        step_count += 1
         lowest_number = cache_random_list[0]
         for i in cache_random_list:
-            step_count += 1
             if i < lowest_number:
                 step_count += 1
                 lowest_number = i
+            else:
+                step_count += 1
         print_sort_progress(lowest_number, step_count, debug=debug)
 
         lowest_number_list = []
@@ -34,6 +34,8 @@ def selection_sort(random_list: list, debug: bool, help_text: str = "") -> list:
             if i == lowest_number:
                 step_count += 1
                 lowest_number_list.append(i)
+            else:
+                step_count += 1
 
         ordered_list.extend(lowest_number_list)
 
