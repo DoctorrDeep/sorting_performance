@@ -2,7 +2,7 @@ import copy
 from datetime import datetime
 
 from app_scripts.create_check_random_number_list import check_order
-from app_scripts.print_scripts import print_sort_progress, print_sort_results
+from app_scripts.print_scripts import print_sort_results
 
 
 # Method 2: Bubble sort (as done in youtube linked video in Readme) https://en.wikipedia.org/wiki/Bubble_sort
@@ -19,21 +19,34 @@ def bubble_sort(
     step_count = 0
     start_time = datetime.now()
 
-    ordered_list = copy.deepcopy(random_list)
+    cache_random_list = copy.deepcopy(random_list)
+    ordered_list = []
+    count_cache_list = len(cache_random_list)
 
-    while check_order(ordered_list)["random_bool"]:
-        step_count += 1
-        cache_random_list = copy.deepcopy(ordered_list)
-        for num_index, num in enumerate(cache_random_list[:-1]):
-            step_count += 1
-            if num > ordered_list[num_index + 1]:
+    while count_cache_list > 1:
+        for num_index in range(count_cache_list - 1):
+            current_num = cache_random_list[num_index]
+            next_num = cache_random_list[num_index + 1]
+
+            if current_num > next_num:
+                cache_random_list[num_index] = next_num
+                cache_random_list[num_index + 1] = current_num
                 step_count += 1
-                ordered_list[num_index] = copy.deepcopy(ordered_list[num_index + 1])
-                ordered_list[num_index + 1] = num
-                print_sort_progress(
-                    ordered_list[num_index + 1], step_count, debug=debug
-                )
-                break
+            else:
+                cache_random_list[num_index] = current_num
+                cache_random_list[num_index + 1] = next_num
+                step_count += 1
+
+        ordered_list.insert(0, cache_random_list[-1])
+        cache_random_list = copy.deepcopy(cache_random_list[:-1])
+        count_cache_list = len(cache_random_list)
+
+        if debug:
+            print("\t\t\tgrowing ordered_list", ordered_list)
+
+    ordered_list = cache_random_list + ordered_list
+    if debug:
+        print("\t\t\t\tordered_list", ordered_list)
 
     time_taken_to_sort = round((datetime.now() - start_time).total_seconds(), 4)
     sort_state = check_order(ordered_list)["random_bool"] is False
