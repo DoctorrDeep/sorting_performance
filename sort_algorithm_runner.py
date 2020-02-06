@@ -4,7 +4,7 @@ from sorters.merge_sort import merge_sort as ms
 from sorters.selection_sort_1 import selection_sort as ss1
 from sorters.selection_sort_2 import selection_sort as ss2
 
-debug = True
+debug = False
 count = None
 # count = 500
 
@@ -30,6 +30,7 @@ bu_s(
     debug=debug,
     help_text="for unique numbers",
 )
+
 bu_s(
     duplicate_allowed_random_list,
     known_solution_duplicate_allowed_random_list,
@@ -44,7 +45,13 @@ ms(
     help_text="for unique numbers",
 )
 
-# TODO: Merge Sort (as done in youtube linked video in Readme) https://en.wikipedia.org/wiki/Merge_sort
+ms(
+    duplicate_allowed_random_list,
+    known_solution_duplicate_allowed_random_list,
+    debug=debug,
+    help_text="for non-unique numbers",
+)
+
 # TODO: Quick Sort https://en.wikipedia.org/wiki/Quicksort
 # TODO: Heap Sort https://en.wikipedia.org/wiki/Heapsort
 # TODO: Bucket Sort (this is the  method that I used to sort cards when I need to sort under distraction. Takes longer because more steps required.) https://en.wikipedia.org/wiki/Bucket_sort
