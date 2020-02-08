@@ -10,6 +10,21 @@ from app_scripts.print_scripts import print_sort_progress, print_sort_results
 
 
 def selection_sort(random_list: list, debug: bool, help_text: str = "") -> list:
+    """
+
+    :param random_list:
+    :param debug:
+    :param help_text:
+    :return:
+
+    Doctest
+
+    >>> selection_sort([5,4,3,2,1], debug=False)
+    [1, 2, 3, 4, 5]
+
+    >>> selection_sort([3,3,2,1,2,3], debug=False)
+    [1, 2, 2, 3, 3, 3]
+    """
     method_name = "Selection sort 1.1"
     step_count = 0
     start_time = datetime.now()

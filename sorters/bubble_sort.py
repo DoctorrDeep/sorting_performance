@@ -15,6 +15,23 @@ def bubble_sort(
         debug: bool,
         help_text: str = "",
 ):
+    """
+
+    :param random_list:
+    :param known_solution_unique_random_list:
+    :param debug:
+    :param help_text:
+    :return:
+
+    Doctest
+
+    >>> bubble_sort([5,4,3,2,1],[1,2,3,4,5], debug=False)
+    [1, 2, 3, 4, 5]
+
+    >>> bubble_sort([3,3,2,1,2,3], [1,2,2,3,3,3], debug=False)
+    [1, 2, 2, 3, 3, 3]
+
+    """
     method_name = "Bubble sort"
     step_count = 0
     start_time = datetime.now()
@@ -59,3 +76,5 @@ def bubble_sort(
         matches_known_solution=matches_known_solution,
         help_text=help_text,
     )
+
+    return ordered_list

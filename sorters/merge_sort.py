@@ -6,10 +6,25 @@ from app_scripts.print_scripts import print_sort_results
 
 
 # Method 3: Merge sort (as done in youtube linked video in Readme) https://en.wikipedia.org/wiki/Merge_sort
-# Settings: duplicate/unique agnostic (I think)
+# Settings: duplicate/unique agnostic
 
 
 def get_combined_chunk(chunk_a: list, chunk_b: list) -> dict:
+    """
+
+    :param chunk_a:
+    :param chunk_b:
+    :return:
+
+    Doctest
+
+    >>> get_combined_chunk(chunk_a = [2], chunk_b = [1])
+    {'chunk_ordered_list': [1, 2], 'step_count': 1}
+
+    >>> get_combined_chunk(chunk_a = [2,4,5,8], chunk_b = [3,4,7])
+    {'chunk_ordered_list': [2, 3, 4, 4, 5, 7, 8], 'step_count': 6}
+
+    """
     chunk_ordered_list = []
     step_count = 0
 
@@ -39,6 +54,23 @@ def merge_sort(
     debug: bool,
     help_text: str = "",
 ):
+    """
+
+    :param random_list:
+    :param known_solution_unique_random_list:
+    :param debug:
+    :param help_text:
+    :return:
+
+    Doctest
+
+    >>> merge_sort([5,4,3,2,1],[1,2,3,4,5], debug=False)
+    [1, 2, 3, 4, 5]
+
+    >>> merge_sort([3,3,2,1,2,3], [1,2,2,3,3,3], debug=False)
+    [1, 2, 2, 3, 3, 3]
+
+    """
     method_name = "Merge sort"
     step_count = 0
     start_time = datetime.now()
@@ -89,3 +121,5 @@ def merge_sort(
         matches_known_solution=matches_known_solution,
         help_text=help_text,
     )
+
+    return ordered_list
