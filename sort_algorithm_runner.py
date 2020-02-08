@@ -1,3 +1,5 @@
+import logging
+
 from app_scripts.create_check_random_number_list import generate_list
 from sorters.bubble_sort import bubble_sort as bu_s
 from sorters.merge_sort import merge_sort as ms
@@ -7,6 +9,12 @@ from sorters.selection_sort_2 import selection_sort as ss2
 debug = False
 count = None
 # count = 500
+
+logging.basicConfig(
+    # filename=f"{my_dir}/sort_runner.log",
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(message)s",
+)
 
 if debug:
     unique_random_list = generate_list(max_number=20, count=6, uniqued_list=True)
