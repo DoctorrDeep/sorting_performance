@@ -25,10 +25,10 @@ def native_sort(
 
     Doctest
 
-    >>> bubble_sort([5,4,3,2,1],[1,2,3,4,5], debug=False)
+    >>> native_sort([5,4,3,2,1],[1,2,3,4,5], debug=False)
     [1, 2, 3, 4, 5]
 
-    >>> bubble_sort([3,3,2,1,2,3], [1,2,2,3,3,3], debug=False)
+    >>> native_sort([3,3,2,1,2,3], [1,2,2,3,3,3], debug=False)
     [1, 2, 2, 3, 3, 3]
 
     """
