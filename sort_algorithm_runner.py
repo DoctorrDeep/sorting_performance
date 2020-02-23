@@ -5,6 +5,7 @@ from sorters.bubble_sort import bubble_sort as bu_s
 from sorters.merge_sort import merge_sort as ms
 from sorters.selection_sort_1 import selection_sort as ss1
 from sorters.selection_sort_2 import selection_sort as ss2
+from sorters.native_sort import native_sort as ns
 
 debug = False
 count = None
@@ -59,6 +60,57 @@ ms(
     debug=debug,
     help_text="for non-unique numbers",
 )
+
+ns(
+    unique_random_list,
+    known_solution_unique_random_list,
+    debug=debug,
+    help_text="for unique numbers",
+)
+
+ns(
+    duplicate_allowed_random_list,
+    known_solution_duplicate_allowed_random_list,
+    debug=debug,
+    help_text="for non-unique numbers",
+)
+
+
+def create_graph():
+
+    for i in range(100):
+
+        known_solution_unique_random_list = ss1(
+            unique_random_list, debug=debug, help_text="for unique numbers"
+        )
+
+        bu_s(
+            unique_random_list,
+            known_solution_unique_random_list,
+            debug=debug,
+            help_text="for unique numbers",
+            create_csv=True,
+        )
+
+        ms(
+            unique_random_list,
+            known_solution_unique_random_list,
+            debug=debug,
+            help_text="for unique numbers",
+            create_csv=True,
+        )
+
+        ns(
+            unique_random_list,
+            known_solution_unique_random_list,
+            debug=debug,
+            help_text="for unique numbers",
+            create_csv=True,
+        )
+
+
+create_graph()
+
 
 # TODO: Quick Sort https://en.wikipedia.org/wiki/Quicksort
 # TODO: Heap Sort https://en.wikipedia.org/wiki/Heapsort

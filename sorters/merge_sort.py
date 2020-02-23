@@ -42,10 +42,7 @@ def get_combined_chunk(chunk_a: list, chunk_b: list) -> dict:
     chunk_ordered_list.extend(chunk_a)
     chunk_ordered_list.extend(chunk_b)
 
-    return {
-        "chunk_ordered_list": chunk_ordered_list,
-        "step_count": step_count,
-    }
+    return {"chunk_ordered_list": chunk_ordered_list, "step_count": step_count}
 
 
 def merge_sort(
@@ -53,6 +50,7 @@ def merge_sort(
     known_solution_unique_random_list: list,
     debug: bool,
     help_text: str = "",
+    create_csv: bool = False,
 ):
     """
 
@@ -120,6 +118,7 @@ def merge_sort(
         sort_state=sort_state,
         matches_known_solution=matches_known_solution,
         help_text=help_text,
+        create_csv=create_csv,
     )
 
     return ordered_list

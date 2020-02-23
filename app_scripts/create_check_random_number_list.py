@@ -2,10 +2,10 @@ import random
 
 
 def generate_list(
-        min_number: int = 1,
-        max_number: int = 1000000,
-        count: int = 1000,
-        uniqued_list: bool = True,
+    min_number: int = 1,
+    max_number: int = 1000000,
+    count: int = 1000,
+    uniqued_list: bool = True,
 ) -> list:
     """
     This function will create a list of random numbers.
@@ -19,7 +19,7 @@ def generate_list(
     :return: list of size `count` of random numbers in random order
     """
 
-    if count == None:
+    if count is None:
         count = 1000
 
     random_numbers_list = []

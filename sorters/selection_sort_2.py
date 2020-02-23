@@ -9,7 +9,9 @@ from app_scripts.print_scripts import print_sort_progress, print_sort_results
 # Settings: duplicate numbers allowed
 
 
-def selection_sort(random_list: list, debug: bool, help_text: str = "") -> list:
+def selection_sort(
+    random_list: list, debug: bool, help_text: str = "", create_csv: bool = False
+) -> list:
     """
 
     :param random_list:
@@ -67,6 +69,7 @@ def selection_sort(random_list: list, debug: bool, help_text: str = "") -> list:
         step_count=step_count,
         sort_state=sort_state,
         help_text=help_text,
+        create_csv=create_csv,
     )
 
     return known_solution_duplicate_allowed_random_list
