@@ -3,9 +3,9 @@ import logging
 from app_scripts.create_check_random_number_list import generate_list
 from sorters.bubble_sort import bubble_sort as bu_s
 from sorters.merge_sort import merge_sort as ms
+from sorters.native_sort import native_sort as ns
 from sorters.selection_sort_1 import selection_sort as ss1
 from sorters.selection_sort_2 import selection_sort as ss2
-from sorters.native_sort import native_sort as ns
 
 debug = False
 count = None
@@ -79,11 +79,10 @@ ns(
 def create_graph():
 
     for i in range(100):
-
+        unique_random_list = generate_list(count=count, uniqued_list=True)
         known_solution_unique_random_list = ss1(
-            unique_random_list, debug=debug, help_text="for unique numbers"
+            unique_random_list, debug=debug, help_text="for unique numbers", create_csv=True
         )
-
         bu_s(
             unique_random_list,
             known_solution_unique_random_list,
@@ -91,7 +90,6 @@ def create_graph():
             help_text="for unique numbers",
             create_csv=True,
         )
-
         ms(
             unique_random_list,
             known_solution_unique_random_list,
@@ -99,7 +97,6 @@ def create_graph():
             help_text="for unique numbers",
             create_csv=True,
         )
-
         ns(
             unique_random_list,
             known_solution_unique_random_list,
@@ -108,8 +105,33 @@ def create_graph():
             create_csv=True,
         )
 
-
 create_graph()
+
+## Experimental
+# import numpy as np
+# import pandas as pd
+# import matplotlib.pyplot as plt
+# all_data_df = pd.read_csv("perf.csv")
+# perf_df = all_data_df.loc[:, ["method_name", "time_taken"]]
+# steps_df = all_data_df.loc[:, ["method_name", "step_count"]]
+#
+# perf_mer = perf_df[perf_df["method_name"] == "Merge sort"].loc[:,"time_taken"].to_numpy()
+# perf_bub = perf_df[perf_df["method_name"] == "Bubble sort"].loc[:,"time_taken"].to_numpy()
+# perf_nat = perf_df[perf_df["method_name"] == "Native sort"].loc[:,"time_taken"].to_numpy()
+# perf_sel = perf_df[perf_df["method_name"] == "Selection sort 1.0"].loc[:,"time_taken"].to_numpy()
+# plt.title("Box plot of performance")
+# plt.boxplot((perf_mer, perf_bub, perf_nat, perf_sel))
+# plt.show()
+#
+# steps_mer = steps_df[steps_df["method_name"] == "Merge sort"].loc[:,"step_count"].to_numpy()
+# steps_bub = steps_df[steps_df["method_name"] == "Bubble sort"].loc[:,"step_count"].to_numpy()
+# steps_nat = steps_df[steps_df["method_name"] == "Native sort"].loc[:,"step_count"].to_numpy()
+# steps_sel = steps_df[steps_df["method_name"] == "Selection sort 1.0"].loc[:,"step_count"].to_numpy()
+# plt.title("Box plot of step_counts")
+# plt.boxplot((steps_mer, steps_bub, steps_nat, steps_sel))
+# plt.show()
+
+
 
 
 # TODO: Quick Sort https://en.wikipedia.org/wiki/Quicksort
