@@ -126,7 +126,7 @@ def create_graph():
         )
 
 
-create_graph()
+# create_graph()
 
 ## Experimental
 # import pandas as pd
