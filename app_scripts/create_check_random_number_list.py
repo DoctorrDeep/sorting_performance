@@ -2,10 +2,7 @@ import random
 
 
 def generate_list(
-    min_number: int = 1,
-    max_number: int = 1000000,
-    count: int = 1000,
-    uniqued_list: bool = True,
+    min_number: int = 1, max_number: int = 1000000, count: int = 1000, uniqued_list: bool = True,
 ) -> list:
     """
     This function will create a list of random numbers.

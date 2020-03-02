@@ -6,9 +6,7 @@ from pathlib import Path
 
 def print_sort_progress(lowest_number: int, step_count: int, debug: bool):
     if debug:
-        logging.info(
-            f"Lowest number in this round = {lowest_number}. Step_count = {step_count}"
-        )
+        logging.info(f"Lowest number in this round = {lowest_number}. Step_count = {step_count}")
 
 
 def print_sort_results(

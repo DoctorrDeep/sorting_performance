@@ -20,9 +20,7 @@ logging.basicConfig(
 
 if debug:
     unique_random_list = generate_list(max_number=20, count=6, uniqued_list=True)
-    duplicate_allowed_random_list = generate_list(
-        max_number=20, count=6, uniqued_list=False
-    )
+    duplicate_allowed_random_list = generate_list(max_number=20, count=6, uniqued_list=False)
 else:
     unique_random_list = generate_list(count=count, uniqued_list=True)
     duplicate_allowed_random_list = generate_list(count=count, uniqued_list=False)
@@ -127,6 +125,7 @@ def create_graph():
             create_csv=True,
         )
 
+
 create_graph()
 
 ## Experimental
@@ -161,8 +160,6 @@ create_graph()
 # ax2.legend(["steps_mer", "steps_bub", "steps_nat", "steps_sel", "steps_quk"])
 #
 # fig.show()
-
-
 
 
 # TODO: Heap Sort https://en.wikipedia.org/wiki/Heapsort

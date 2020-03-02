@@ -45,20 +45,18 @@ def find_pivot(random_list: list) -> dict:
     if not len(random_list) % 2:
         vals_to_chose_from["pre_middle"] = random_list[indexes["pre_middle"]]
 
-    temp = {
-        "step_count": 1,
-        "pivot": None,
-        "pivot_index": None
-    }
+    temp = {"step_count": 1, "pivot": None, "pivot_index": None}
 
     step_count = 1
     for pivot_index_key, pivot in vals_to_chose_from.items():
         step_count += 1
-        if pivot != min(list(vals_to_chose_from.values())) and pivot != max(list(vals_to_chose_from.values())):
+        if pivot != min(list(vals_to_chose_from.values())) and pivot != max(
+            list(vals_to_chose_from.values())
+        ):
             temp = {
                 "step_count": step_count,
                 "pivot": pivot,
-                "pivot_index": indexes[pivot_index_key]
+                "pivot_index": indexes[pivot_index_key],
             }
             return temp
 
@@ -68,11 +66,7 @@ def find_pivot(random_list: list) -> dict:
             step_count += 1
             if vals_to_chose_from[i] == max_val:
                 max_val_index = indexes[i]
-        return {
-            "step_count": step_count,
-            "pivot": max_val,
-            "pivot_index": max_val_index
-        }
+        return {"step_count": step_count, "pivot": max_val, "pivot_index": max_val_index}
 
 
 def sort_wrt_pivot(random_list: list, pivot: int, debug: bool = False) -> dict:
@@ -123,7 +117,7 @@ def sort_wrt_pivot(random_list: list, pivot: int, debug: bool = False) -> dict:
                 "less_random_list": [
                     cache_random_list[:item_from_left_ind],
                     [pivot],
-                    cache_random_list[item_from_left_ind:]
+                    cache_random_list[item_from_left_ind:],
                 ],
             }
 
@@ -180,10 +174,7 @@ def recursive_sorter(list_of_random_lists: list, step_count: int = 0, debug: boo
             step_count += partition_data["step_count"]
             new_list_of_random_lists.extend(partition_data["less_random_list"])
 
-    current_result = {
-        "ordered_list_of_lists": new_list_of_random_lists,
-        "step_count": step_count
-    }
+    current_result = {"ordered_list_of_lists": new_list_of_random_lists, "step_count": step_count}
 
     if sorting_action_carried_out:
         if debug:
@@ -194,11 +185,11 @@ def recursive_sorter(list_of_random_lists: list, step_count: int = 0, debug: boo
 
 
 def quick_sort(
-        random_list: list,
-        known_solution_unique_random_list: list,
-        debug: bool,
-        help_text: str = "",
-        create_csv: bool = False,
+    random_list: list,
+    known_solution_unique_random_list: list,
+    debug: bool,
+    help_text: str = "",
+    create_csv: bool = False,
 ):
     """
 

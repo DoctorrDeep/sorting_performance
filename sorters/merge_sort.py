@@ -93,9 +93,7 @@ def merge_sort(
                 ordered_list.extend(temp["chunk_ordered_list"])
                 step_count += temp["step_count"]
 
-        leftover_random_numbers = cache_random_list[
-            len(ordered_list) : len(cache_random_list)
-        ]
+        leftover_random_numbers = cache_random_list[len(ordered_list) : len(cache_random_list)]
         ordered_list.extend(leftover_random_numbers)
 
         chunk_size = chunk_size * 2
