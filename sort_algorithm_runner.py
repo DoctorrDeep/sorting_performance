@@ -126,7 +126,7 @@ def create_graph():
         )
 
 
-# create_graph()
+create_graph()
 
 ## Experimental
 # import pandas as pd
@@ -145,8 +145,9 @@ def create_graph():
 # ax1.set_title("Box plot of performance (lower is better)")
 # ax1.set_xlabel("sorters")
 # ax1.set_ylabel("time in seconds")
+# ax1.set_xticklabels(["Merge", "Quick", "Bubble", "Native", "Selection 1.0"])
 # ax1.boxplot((perf_mer, perf_bub, perf_nat, perf_sel, perf_quk))
-# ax1.legend(["perf_mer", "perf_bub", "perf_nat", "perf_sel", "perf_quk"])
+#
 #
 # steps_mer = steps_df[steps_df["method_name"] == "Merge sort"].loc[:,"step_count"].to_numpy()
 # steps_quk = steps_df[steps_df["method_name"] == "Quick sort"].loc[:,"step_count"].to_numpy()
@@ -156,11 +157,11 @@ def create_graph():
 # ax2.set_title("Box plot of steps (lower is better)")
 # ax2.set_xlabel("sorters")
 # ax2.set_ylabel("count")
+# ax2.set_xticklabels(["Merge", "Quick", "Bubble", "Native", "Selection 1.0"])
 # ax2.boxplot((steps_mer, steps_bub, steps_nat, steps_sel, steps_quk))
-# ax2.legend(["steps_mer", "steps_bub", "steps_nat", "steps_sel", "steps_quk"])
-#
-# fig.show()
 
+##fig.savefig("x.jpeg", orientation="landscape", bbox_inches="tight")
+## fig.show()
 
 # TODO: Heap Sort https://en.wikipedia.org/wiki/Heapsort
 # TODO: Bucket Sort (this is the  method that I used to sort cards when I need to sort under distraction. Takes longer because more steps required.) https://en.wikipedia.org/wiki/Bucket_sort
